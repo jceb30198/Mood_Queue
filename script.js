@@ -1,7 +1,7 @@
 
 function displayPreview(){
 
-    var queryURL:"http://api.deezer.com/radio";
+    var queryURL = "http://api.deezer.com/radio";
 
     $.ajax({
         url: queryURL,
@@ -35,8 +35,5 @@ function displayPreview(){
 
         cardBody.append(cityDate, image, temperature, humidity);
         card.append(cardBody);
-        $("#forecast").append(card);
-        
-
-        
+        $("#forecast").append(card);   
 }
