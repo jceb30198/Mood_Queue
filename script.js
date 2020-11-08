@@ -2,23 +2,39 @@
 function displayPreview(){
 
     var queryURL = "http://api.deezer.com/radio";
+    var array = [];
+    arrayPreview = [];
 
     $.ajax({
         url: queryURL,
         method: "GET"
       }).then(function(response) {
+        array = response.data;
 
-        var playlist = $("<div class='preview'>");
 
 
-    $('#forecast').empty();
+        array.forEach(element => {
+            $.ajax({
+                url: element.tracklist,
+                method: "GET"
+              }).then(function(response2) {
+                array2 = response2.data;
+                var contdor= 1;
+                array2.forEach(element2 => {
+                    if(contador <= 5) {
+                        arrayPreview.push({preview: element2.preview});
+                        return;
+                    }
+                    
+                    contador++;
+                });
+                
+              });
+              
+        });
 
-    var results = response.Preview;
+       
+      });
 
-    for (var i = 0; i < results.length; i++) {
-
-      var day = Number(results[i].dt_txt.split('-')[2].split(' ')[0]);
-      var hour = results[i].dt_txt.split('-')[2].split(' ')[1];
-
-   
-}
+      console.log(arrayPreview);
+    }s
