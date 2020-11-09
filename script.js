@@ -29,5 +29,8 @@
               });   
         });
       });
+
     };
-    $("#happybtn").on('click', function()
+    $('#happybtn').on('click', function(){
+      alert("test");
+    });
