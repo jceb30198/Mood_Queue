@@ -1,40 +1,33 @@
-
-function displayPreview(){
-
     var queryURL = "http://api.deezer.com/radio";
-    var array = [];
+    var music = [];
     arrayPreview = [];
 
+    function getData(queryURL,music){  
     $.ajax({
         url: queryURL,
         method: "GET"
       }).then(function(response) {
-        array = response.data;
+        console.log(response);
+        music = response.data;
 
-
-
-        array.forEach(element => {
+        
+        music.forEach(element => {
             $.ajax({
                 url: element.tracklist,
                 method: "GET"
               }).then(function(response2) {
-                array2 = response2.data;
-                var contdor= 1;
-                array2.forEach(element2 => {
+                console.log(response2)
+                preview = response2.data;
+                var contador = 1;
+                preview.forEach(element2 => {
                     if(contador <= 5) {
                         arrayPreview.push({preview: element2.preview});
                         return;
-                    }
-                    
+                    } 
                     contador++;
                 });
-                
-              });
-              
+              });   
         });
-
-       
       });
-
-      console.log(arrayPreview);
-    }s
+    };
+    $("#happybtn").on('click', function()
