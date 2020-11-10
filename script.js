@@ -1,8 +1,30 @@
-    var queryURL = "http://api.deezer.com/radio";
-    var music = [];
-    arrayPreview = [];
+    var artist = $("#search-term").val()
+   
+    $("#search-term").keypress(function(event) { 
+	
+      if (event.keyCode === 13) { 
+        event.preventDefault();
+        $("#run-search").click(); 
+      } 
+    });
+    
+    $("#run-search").on("click", function() {
+    event.preventDefault();
+      console.log(artist);
+      
+      $('#previewMusic').addClass('showClass');
+      artist = $("#search-term").val();
+      getData(artist);
+      $("#search-term").val("");  
+    });
 
-    function getData(queryURL,music){  
+    
+    function getData(filter){ 
+      
+      var queryURL= "https://api.deezer.com/search?q=" + filter;
+      var music = [];
+      arrayPreview = [];
+
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -32,5 +54,14 @@
 
     };
     $('#happybtn').on('click', function(){
+      alert("test");
+    });
+
+
+    $('#angrybtn').on('click', function(){
+      alert("test");
+    });
+
+    $('#sadbtn').on('click', function(){
       alert("test");
     });
