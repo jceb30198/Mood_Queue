@@ -20,19 +20,31 @@
 
     
     function getData(filter){ 
+ 
+      var numberOfSongs = 5
+
+      for (var i= 1;i < numberOfSongs; i++){
       
       var queryURL= "https://api.deezer.com/search?q=" + filter;
-      var music = [];
-      arrayPreview = [];
+      var artist = [];
+      var prev30Seconds = [];
+      var albumImage = [];
 
     $.ajax({
         url: queryURL,
         method: "GET"
       }).then(function(response) {
-        console.log(response);       
-        music = response.data[0].preview;
-        console.log(music)
+
+        var randomdata= Math.floor((Math.random() * 25) + 1);  
+        
+        console.log(response);
+        artist = response.data[randomdata].title;
+        prev30Seconds = response.data[randomdata].preview;
+        albumImage = response.data[randomdata].artist.picture;
+        console.log(albumImage);
+        console.log(artist);
+        console.log(prev30Seconds);
 
       });
-
+    }
     };
