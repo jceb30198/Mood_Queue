@@ -45,6 +45,16 @@
         console.log(artist);
         console.log(prev30Seconds);
 
+        var card = $("<div>").addClass("card col-md-2 ml-4 bg-primary text-white");
+        var prevBody = $("<div>").addClass("card-body p-3 previewBody");
+        var audioControl= $("<audio controls>").attr("src", prev30Seconds);
+        var artistToAppend = $("<div>").addClass("card-body p-3 previewBody").text(artist);
+
+        var image = $("<img>").attr("src", albumImage)
+
+       prevBody.append(artistToAppend,image, audioControl);
+       card.append(prevBody);
+       $("#preview-section").append(card);
       });
     }
     };
