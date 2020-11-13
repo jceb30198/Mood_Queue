@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mood Queue</title>
+    <title>Playlist</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
+    
     <!--Header of the page-->
     <nav>
         <div>
@@ -15,19 +16,17 @@
         </div>
     </nav>
 
-    <!--Card to choose mood-->
+    <!--This card displays the playlist that is chosen-->
     <div class="container">
+        <!--Teal is the color right now but we should try changing either the card or body background color depending on the mood-->
         <div class="card-panel teal lighten-4 center" id="card">
-            <h4>How are you feeling today?</h4>
-            <button class="waves-effect btn yellow darken-1">Happy</button>
-            <button class="waves-effect btn red darken-1">Angry</button>
-            <button class="waves-effect btn red darken-1">Don't Know</button>
-            <button class="waves-effect btn blue darken-1">Sad</button>
+            <!--Use this unordered list to order the playlist-->
+            <ul>
+            </ul>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src=“https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js”></script>
-    <script src="script.js"></script>
 </body>
 </html>

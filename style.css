@@ -1,3 +1,7 @@
 #card {
     margin-top: 100px;
 }
+body{
+    background-image: url(Assets/vinyl.jpg);
+    background-size: cover;
+}
