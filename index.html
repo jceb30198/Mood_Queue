@@ -9,18 +9,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <!--Header of the page-->
     <nav>
         <div>
             <a href="index.html" class="brand-logo center">Mood Queue</a>
         </div>
     </nav>
 
-    <!--Card to choose mood-->
     <div class="container">
         <div class="card-panel teal lighten-4 center" id="card">
-
-            <h4>How are you feeling today?</h4>
+            <p>How are you feeling today?</p>
             <button class="waves-effect btn yellow darken-1" id="happybtn">Happy</button>
             <button class="waves-effect btn red darken-1" id="angrybtn">Angry</button>
             <button class="waves-effect btn blue darken-1"id="sadbtn">Sad</button>
@@ -36,14 +33,13 @@
             
               <button type="submit" class="btn btn-default" id="run-search">
                 <i class="fa fa-search"></i> Search</button>
-              <button class="btn btn-default" id="clear-all">
+              <button type="submit" class="btn btn-default" id="clear-all">
                 <i class="fa fa-trash"></i> Clear Results</button>
 
                 <div class="row">
                     <div id = "previewMusic" class="col s12 hide"><p>This are your previews</p></div>
-                  </div>
+                </div>
               
-
           </div>
           <div class="card-body" id="preview-section">
               

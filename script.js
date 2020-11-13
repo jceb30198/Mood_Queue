@@ -21,7 +21,7 @@
     
     function getData(filter){ 
  
-      var numberOfSongs = 5
+      var numberOfSongs = 6
 
       for (var i= 1;i < numberOfSongs; i++){
       
@@ -49,12 +49,27 @@
         var prevBody = $("<div>").addClass("card-body p-3 previewBody");
         var audioControl= $("<audio controls>").attr("src", prev30Seconds);
         var artistToAppend = $("<div>").addClass("card-body p-3 previewBody").text(artist);
-
         var image = $("<img>").attr("src", albumImage)
-
        prevBody.append(artistToAppend,image, audioControl);
        card.append(prevBody);
        $("#preview-section").append(card);
       });
     }
     };
+
+    function clearData(){
+      var queryURL= "https://api.deezer.com/search?q=" + filter;
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+        $("#preview-section").empty();
+    });
+  };
+
+  $("#clear-all").on("click", function() {
+    event.preventDefault();
+    
+      $( "#preview-section" ).empty();
+    });
