@@ -1,24 +1,50 @@
+    var artist = $("#search-term").val()
+   
+    $("#search-term").keypress(function(event) { 
+	
+      if (event.keyCode === 13) { 
+        event.preventDefault();
+        $("#run-search").click(); 
+      } 
+    });
+    
+    $("#run-search").on("click", function() {
+    event.preventDefault();
+      console.log(artist);
+      
+      $('#previewMusic').addClass('showClass');
+      artist = $("#search-term").val();
+      getData(artist);
+      $("#search-term").val("");  
+    });
 
-function displayPreview(){
+    
+    function getData(filter){ 
+ 
+      var numberOfSongs = 5
 
-    var queryURL = "http://api.deezer.com/radio";
+      for (var i= 1;i < numberOfSongs; i++){
+      
+      var queryURL= "https://api.deezer.com/search?q=" + filter;
+      var artist = [];
+      var prev30Seconds = [];
+      var albumImage = [];
 
     $.ajax({
         url: queryURL,
         method: "GET"
       }).then(function(response) {
 
-        var playlist = $("<div class='preview'>");
+        var randomdata= Math.floor((Math.random() * 25) + 1);  
+        
+        console.log(response);
+        artist = response.data[randomdata].title;
+        prev30Seconds = response.data[randomdata].preview;
+        albumImage = response.data[randomdata].artist.picture;
+        console.log(albumImage);
+        console.log(artist);
+        console.log(prev30Seconds);
 
-
-    $('#forecast').empty();
-
-    var results = response.Preview;
-
-    for (var i = 0; i < results.length; i++) {
-
-      var day = Number(results[i].dt_txt.split('-')[2].split(' ')[0]);
-      var hour = results[i].dt_txt.split('-')[2].split(' ')[1];
-
-   
-}
+      });
+    }
+    };
