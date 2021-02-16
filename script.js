@@ -1,12 +1,20 @@
+
 $(".button").on("click", function() {
 var mood = $(this).val();
 console.log(mood);
-window.location= "playlist.html./?"+ mood;
+window.location= "playlist.html";
+localStorage.setItem("mood", mood)
+$('#previewMusic').addClass('showClass');
 
-// $('#previewMusic').addClass('showClass');
-// getData(mood);
-// $("#search-term").val("");  
 });
+
+
+$("#run-search").on("click", function() {
+ var artistsearch = $("#search-term").val();
+ console.log(artistsearch);
+  
+  getData(artistsearch);  
+
 
 function getData(filter){ 
 
@@ -61,3 +69,4 @@ event.preventDefault();
 
   $( "#preview-section" ).empty();
 }); 
+});
