@@ -5,3 +5,6 @@ body{
     background-image: url(Assets/vinyl.jpg);
     background-size: cover;
 }
+h3{
+    background-color: teal;
+}
