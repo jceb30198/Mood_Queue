@@ -6,16 +6,28 @@
     <title>Playlist</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <script>
-        console.log(localStorage.getItem("mood"));
-        // var mood = "";
-        // const urlParams = new URLSearchParams(window.location.search);
-        // mood = urlParams.get("mood");
-        // console.log("the mood is "+mood);
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+   
+    <!--Header of the page-->
+    <nav>
+        <div>
+            <a href="index.html" class="brand-logo center">Mood Queue</a>
+        </div>
+    </nav>
+
+    <!--This card displays the playlist that is chosen-->
+    <div class="container">
+        <!--Teal is the color right now but we should try changing either the card or body background color depending on the mood-->
+        <div class="card-panel teal lighten-4 center" id="card">
+            <!--Use this populate the playlist-->
+            <div class="card-body" id="preview-section">
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>   
+    <script src="playlist.js"></script>
 </body>
 </html>

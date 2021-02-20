@@ -1,35 +1,56 @@
+$(document).ready(function() {
+    mood = localStorage.getItem("mood")
+    console.log(mood); //test localstorage for var mood
+    
+    //create vars corresponding with mood to get appropriate genres of music 
 
-// $(document).ready(() => {
-// _
-//     $("#happybtn").on("click", function () {
-//             for (var i = 1; i < 21; i++) {
-//     _           var moodURL= "https://api.deezer.com/search?q=pop";
-//                 var artist = [];
-//                 var prev30Seconds = [];
-//                 var albumImage = [];
-              
-//                 $.ajax({
-//                   url: moodURL,
-//                   method: "GET"
-//                 }).then(function(response) {
-//                   var randomdata= Math.floor((Math.random() * 25) + 1);  
-//                   artist = response.data[randomdata].title;
-//                   prev30Seconds = response.data[randomdata].preview;
-//                   albumImage = response.data[randomdata].artist.picture;
-//                   console.log(albumImage);
-//                   console.log(artist);
-//                   console.log(prev30Seconds);
-                
-//                   var prevBody = $("<div>").addClass("card-body p-3 previewBody");
-//                   var audioControl= $("<audio controls>").attr("src", prev30Seconds);
-//                   var artistToAppend = $("<div>").addClass("card-body p-3 previewBody").text(artist);
-          
-//                   var image = $("<img>").attr("src", albumImage);
-              
-//                   prevBody.append(artistToAppend,image,audioControl);
-//                   card.append(prevBody);
-//                   $("#playlist").append(card);
-//             });
-//         }
-//     });
-// });
+    var playlist = "";
+    if (mood == "sad"){
+        playlist = "http://api.deezer.com/radio/39051/tracks";
+    }
+    else if (mood == "angry"){
+        playlist = "http://api.deezer.com/radio/42222/tracks";
+    }
+    else if (mood == "happy"){
+        playlist = "http://api.deezer.com/radio/39041/tracks";
+    };
+    // var playlist = determineMood(mood);
+    console.log(playlist);
+
+    var numberOfSongs = 10
+
+    for (var i= 1;i < numberOfSongs; i++){
+
+    // Get Request - Deezer
+    $.ajax({
+        url: playlist,
+        method: "GET"
+    }).then(function(response){
+
+    var randomdata= Math.floor((Math.random() * 25) + 1);
+    console.log(response);
+    artist = response.data[randomdata].artist.name;
+    prev30Seconds = response.data[randomdata].preview;
+    image = response.data[randomdata].artist.picture;
+    console.log(image);
+    console.log(artist);
+    console.log(prev30Seconds);
+    
+    var card = $("<div>").addClass("card col-md-2 ml-4 bg-primary text-white");
+    var prevBody = $("<div>").addClass("card-body p-3 previewBody");
+    var audioControl= $("<audio controls>").attr("src", prev30Seconds);
+    var artistToAppend = $("<div>").addClass("card-body p-3 previewBody").text(artist);
+    var images = $("<img>").attr("src", image)
+   prevBody.append(artistToAppend, images, audioControl);
+   card.append(prevBody);
+   $("#preview-section").append(card);
+  
+
+    
+});
+
+
+
+}});
+
+
