@@ -5,7 +5,9 @@ body{
     background-image: url(Assets/vinyl.jpg);
     background-size: cover;
 }
-
+h3{
+    background-color: teal;
+}
 #search-term{
     color: rgb(94, 14, 83);
     font-size: large;
