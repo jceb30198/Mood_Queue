@@ -50,8 +50,8 @@ $("#run-search").on("click", function() {
       console.log(response);
       artist = response.data[randomdata].title;
       prev30Seconds = response.data[randomdata].preview;
-      image = response.data[randomdata].artist.picture;
-      console.log(image);
+      albumImage = response.data[randomdata].artist.picture;
+      console.log(albumImage);
       console.log(artist);
       console.log(prev30Seconds);
 
