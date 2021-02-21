@@ -34,7 +34,7 @@ $("#run-search").on("click", function() {
     var numberOfSongs = 6
 
     for (var i= 1;i < numberOfSongs; i++){
-    
+
     var queryURL= "https://api.deezer.com/search?q=" + filter;
     var artist = [];
     var prev30Seconds = [];
@@ -46,7 +46,7 @@ $("#run-search").on("click", function() {
     }).then(function(response) {
 
       var randomdata= Math.floor((Math.random() * 25) + 1);  
-      
+
       console.log(response);
       artist = response.data[randomdata].title;
       prev30Seconds = response.data[randomdata].preview;
@@ -67,19 +67,19 @@ $("#run-search").on("click", function() {
   }
   };
 
-  function clearData(){
-    var queryURL= "https://api.deezer.com/search?q=" + filter;
+    function clearData(){
+      var queryURL= "https://api.deezer.com/search?q=" + filter;
 
-  $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
-      $("#preview-section").empty();
-  });
-};
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+        $("#preview-section").empty();
+    });
+  };
 
-$("#clear-all").on("click", function() {
-  event.preventDefault();
-  
-    $( "#preview-section" ).empty();
-  });
+  $("#clear-all").on("click", function() {
+    event.preventDefault();
+    
+      $( "#preview-section" ).empty();
+    });

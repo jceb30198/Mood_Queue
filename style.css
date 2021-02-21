@@ -8,3 +8,8 @@ body{
 h3{
     background-color: teal;
 }
+#search-term{
+    color: rgb(94, 14, 83);
+    font-size: large;
+    font-weight: bolder;
+}
