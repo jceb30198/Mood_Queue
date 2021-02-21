@@ -7,15 +7,15 @@ $(document).ready(function() {
     var playlist = "";
     var quote = "";
     if (mood == "sad"){
-        playlist = "http://api.deezer.com/radio/39051/tracks";
+        playlist = "https://api.deezer.com/radio/39051/tracks";
         quote = '"Songs that make you cry are usually more sad and calmer, with slower tempos and more minor and diminished chords, to evoke a more sedative, or reflective, mood."';
     }
     else if (mood == "angry"){
-        playlist = "http://api.deezer.com/radio/42222/tracks";
+        playlist = "https://api.deezer.com/radio/42222/tracks";
         quote = '"Rather than inciting people to anger or violence, research has found that loud and chaotic music such as metal and punk is ‘a healthy way of processing anger"';
     }
     else if (mood == "happy"){
-        playlist = "http://api.deezer.com/radio/39041/tracks";
+        playlist = "https://api.deezer.com/radio/39041/tracks";
         quote = '"Turns out, we really like listening to songs that make us happy."';
     };
 
